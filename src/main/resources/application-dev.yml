@@ -1,0 +1,38 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        order_inserts: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size: 50
+          lob:
+            non_contextual_creation: true
+        default_schema: public
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/ssmu-dev?serverTimezone=America/Bogota
+    username: username
+    password: password
+    hikari:
+      idle-timeout: 10000
+      maximum-pool-size: 5
+
+  messages:
+    basename: bundles/apiLanguageBundle
+
+ssmu-api:
+  openapi:
+    dev-url: http://localhost:8080/ssmu-api
+    prod-url: https://ssmu-api.com
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework: DEBUG

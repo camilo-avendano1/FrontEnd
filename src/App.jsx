@@ -26,7 +26,7 @@ export default function App() {
 
   useEffect (()=> {
     const cliente = new Client({
-      brokerURL: 'ws://localhost:8080/websocket' 
+      brokerURL: 'ws://localhost:8080/ssmu-api/websocket' 
     
     })
     cliente.onConnect = () => {
@@ -63,8 +63,15 @@ return (
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
 
-   <EvtClickMapa onClick={(c) => console.log(c)}/>
+   <EvtClickMapa onClick={(c) => console.log('coordenadas.add(new Coordenada('+ c.lat +', '+ c.lng +')):')} />
+
+
+
 
     <Marker position={posicionCoche} icon={svgIconCoche}/> 
+
+
+
+
   </MapContainer>);
 }
